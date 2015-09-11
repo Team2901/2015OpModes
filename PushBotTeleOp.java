@@ -84,22 +84,21 @@ public class PushBotTeleOp extends OpMode{
         {
             armMotor.setPower(-.5 * armSpeed);
         }
-        if (gamepad1.b)
+        if (gamepad1.y)
         {
             armMotor.setPower(.5 * armSpeed);
         }
-        if (!gamepad1.a && !gamepad1.b)
+        if (!gamepad1.a && !gamepad1.y)
         {
             armMotor.setPower(0);
         }
 
-        if (gamepad1.left_trigger > 0 && targetValue <= .9)
         {
-            targetValue += .005 * (gamepad1.left_trigger + .1);
+            targetValue += .008 * (gamepad1.right_trigger + .1);
         }
-        if (gamepad1.right_trigger > 0 && targetValue >= .1)
+        if (gamepad1.left_trigger > 0 && targetValue >= .1)
         {
-            targetValue += -.005 * (gamepad1.right_trigger + .1);
+            targetValue += -.008 * (gamepad1.left_trigger + .1);
         }
         telemetry.addData("1", moveSpeed);
         telemetry.addData("2", armSpeed);
